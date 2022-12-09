@@ -1,3 +1,5 @@
+const ipc = window.require('electron').ipcRenderer;
+
 var mysql = require('mysql');
 var count = 0;
 
@@ -8,7 +10,7 @@ const txtPwd = document.getElementById('txtPwd');
 loginBtn.onclick = login;
 
 // logs the user in
-async function login()
+function login()
 {
     var con = mysql.createConnection({
       host: "localhost",
@@ -31,6 +33,7 @@ async function login()
     if (count == 1)
     {
         console.log('Logged in.');
+        ipc.send('openMainWindow');  
     }
     else
     {

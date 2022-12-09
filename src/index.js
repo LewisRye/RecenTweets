@@ -1,4 +1,4 @@
-const { app, BrowserWindow } = require('electron');
+const { app, BrowserWindow, ipcMain } = require('electron');
 const path = require('path');
 
 // Handle creating/removing shortcuts on Windows when installing/uninstalling.
@@ -6,9 +6,10 @@ if (require('electron-squirrel-startup')) {
   app.quit();
 }
 
-const createWindow = () => {
-  // Create the login window.
-  const loginWindow = new BrowserWindow({
+// In this file you can include the rest of your app's specific main process
+// code. You can also put them in separate files and import them here.
+function createLoginWindow() {
+  loginWindow = new BrowserWindow({
     title: 'Electro',
 
     width: 500,
@@ -27,14 +28,21 @@ const createWindow = () => {
     enableLargerThanScreen: false,
 
     webPreferences: {
-      preload: path.join(__dirname, 'preload.js'),
       nodeIntegration: true,
       contextIsolation: false,
     },
+    show: false,
   });
-
-  // Create the main window
-  const mainWindow = new BrowserWindow({
+  
+  // Main window loads index.html file
+  loginWindow.loadFile(__dirname, "login.html");
+  
+  loginWindow.show();
+}
+  
+// Function to create child window of parent one
+function createMainWindow() {
+  mainWindow = new BrowserWindow({
     title: 'Electro',
 
     width: 1200,
@@ -49,43 +57,40 @@ const createWindow = () => {
     fullscreenable: false,
     autoHideMenuBar: true,
     enableLargerThanScreen: false,
-
+    parent: loginWindow, // Make sure to add this
+  
+    // Make sure to add webPreferences with below configuration
     webPreferences: {
-      preload: path.join(__dirname, 'preload.js'),
       nodeIntegration: true,
       contextIsolation: false,
+      enableRemoteModule: true,
     },
-  })
-
-  // and load the login.html and index.html of the app.
-  loginWindow.loadFile(path.join(__dirname, 'login.html'));
-  mainWindow.loadFile(path.join(__dirname, 'index.html'));
-
-  // Open the DevTools.
-  loginWindow.webContents.openDevTools();
-};
-
-// This method will be called when Electron has finished
-// initialization and is ready to create browser windows.
-// Some APIs can only be used after this event occurs.
-app.on('ready', createWindow);
-
-// Quit when all windows are closed, except on macOS. There, it's common
-// for applications and their menu bar to stay active until the user quits
-// explicitly with Cmd + Q.
-app.on('window-all-closed', () => {
-  if (process.platform !== 'darwin') {
+  });
+  
+  // Child window loads settings.html file
+  mainWindow.loadFile(__dirname, "index.html");
+  
+  mainWindow.once("ready-to-show", () => {
+    mainWindow.show();
+  });
+}
+  
+ipcMain.on("openMainWindow", (event, arg) => {
+  createMainWindow();
+});
+  
+app.whenReady().then(() => {
+  createLoginWindow();
+  
+  app.on("activate", () => {
+    if (BrowserWindow.getAllWindows().length === 0) {
+      createLoginWindow();
+    }
+  });
+});
+  
+app.on("window-all-closed", () => {
+  if (process.platform !== "darwin") {
     app.quit();
   }
 });
-
-app.on('activate', () => {
-  // On OS X it's common to re-create a window in the app when the
-  // dock icon is clicked and there are no other windows open.
-  if (BrowserWindow.getAllWindows().length === 0) {
-    createWindow();
-  }
-});
-
-// In this file you can include the rest of your app's specific main process
-// code. You can also put them in separate files and import them here.
