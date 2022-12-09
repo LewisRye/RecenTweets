@@ -1,0 +1,117 @@
+/* COLOR PALETTE */
+:root {
+    --background: #4d4d4d;
+    --surface: #333333;
+    --surface-light: #424242;
+    --surface-dark: #202020;
+    --primary-color: #bb86fc;
+    --darker-primary-color: #3700b3;
+    --secondary-color: #03dac6;
+    --error: #cf6679;
+}
+
+/* FONT SETTINGS */
+* {
+    font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Helvetica,
+    Arial, sans-serif;
+    cursor: default;
+    user-select: none;
+}
+
+body, html {
+    margin: 0px;
+    padding: 0px;
+    width: 100%;
+    height: 85%;
+    background-color: var(--background);
+}
+
+#home-topbar {
+    position: fixed;
+    width: 100%;
+    height: 16px;
+    z-index: 1;
+    top: 0;
+    background-color: var(--surface-dark);
+}
+
+#home-left {
+    position: fixed;
+    width: 200px;
+    height: calc(100vh - 16px);
+    padding-left: 20px;
+    padding-right: 20px;
+    padding-bottom: 20px;
+    z-index: 1;
+    left: 0;
+    top: 16px;
+    bottom: 0px;
+    background-color: var(--surface);
+    overflow-y: scroll;
+    overflow-x: hidden;
+    color: #fff;
+}
+
+#home-main {
+    position: fixed;
+    left: 250px;
+    right: 270px;
+    padding: 15px;
+    color: #fff;
+}
+
+#home-right {
+    position: fixed;
+    width: 220px;
+    height: calc(100vh - 16px);
+    padding-left: 20px;
+    padding-right: 20px;
+    padding-bottom: 20px;
+    z-index: 1;
+    right: 0;
+    top: 16px;
+    bottom: 0px;
+    background-color: var(--surface-light);
+    overflow-y: scroll;
+    overflow-x: hidden;
+    color: #fff;
+}
+
+button.btnDark {
+    -webkit-appearance: button;
+    -moz-appearance: button;
+    appearance: button;
+
+    padding: 2.5%;
+    border: 1px;
+    border-radius: 5px;
+    cursor: pointer;
+
+    text-decoration: none;
+    color: #000;
+    background-color: var(--primary-color);
+}
+
+button.btnDark:hover {
+  opacity: 0.8;
+}
+
+/* width */
+::-webkit-scrollbar {
+  width: 10px;
+}
+
+/* Track */
+::-webkit-scrollbar-track {
+  background: rgba(0,0,0,0);
+}
+
+/* Handle */
+::-webkit-scrollbar-thumb {
+  background: var(--surface-dark);
+}
+
+/* Handle on hover */
+::-webkit-scrollbar-thumb:hover {
+  background: #fff;
+}
