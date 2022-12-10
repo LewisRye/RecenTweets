@@ -26,6 +26,8 @@ body, html {
     background-color: var(--background);
 }
 
+/* LOGIN SECTION */
+
 #login-group {
   width: 100%;
   color: #FFF;
@@ -58,25 +60,18 @@ body, html {
   text-align: center;
 }
 
-#home-topbar {
-    position: fixed;
-    width: 100%;
-    height: 16px;
-    z-index: 1;
-    top: 0;
-    background-color: var(--surface-dark);
-}
+/* HOME SECTION */
 
 #home-left {
     position: fixed;
-    width: 200px;
-    height: calc(100vh - 16px);
+    width: 225px;
+    height: calc(100vh);
     padding-left: 20px;
     padding-right: 20px;
     padding-bottom: 20px;
     z-index: 1;
     left: 0;
-    top: 16px;
+    top: 0px;
     bottom: 0px;
     background-color: var(--surface);
     overflow-y: scroll;
@@ -84,10 +79,22 @@ body, html {
     color: #fff;
 }
 
+#home-left h3 {
+  height: 5vh;
+  line-height: 5vh;
+}
+
+#home-left h3:hover {
+  background-color: var(--surface-light);
+  cursor: pointer;
+}
+
 #home-main {
     position: fixed;
-    left: 250px;
-    right: 270px;
+    top: 0px;
+    bottom: 0px;
+    left: 275px;
+    right: 250px;
     padding: 15px;
     padding-top: 0px;
     color: #fff;
@@ -95,19 +102,29 @@ body, html {
 
 #home-right {
     position: fixed;
-    width: 220px;
-    height: calc(100vh - 16px);
+    width: 200px;
+    height: calc(100vh);
     padding-left: 20px;
     padding-right: 20px;
     padding-bottom: 20px;
     z-index: 1;
     right: 0;
-    top: 16px;
+    top: 0px;
     bottom: 0px;
     background-color: var(--surface-light);
     overflow-y: scroll;
     overflow-x: hidden;
     color: #fff;
+}
+
+#home-right h3 {
+  height: 5vh;
+  line-height: 5vh;
+}
+
+#home-right h3:hover {
+  background-color: var(--surface-dark);
+  cursor: pointer;
 }
 
 .btnDark {
@@ -116,7 +133,7 @@ body, html {
     appearance: button;
 
     padding: 2.5%;
-    border: 1px;
+    border: 0px;
     border-radius: 5px;
     cursor: pointer;
 

@@ -10,7 +10,7 @@ if (require('electron-squirrel-startup')) {
 // code. You can also put them in separate files and import them here.
 function createLoginWindow() {
   loginWindow = new BrowserWindow({
-    title: 'Electro',
+    title: 'RecenTweets',
 
     width: 500,
     height: 800,
@@ -43,7 +43,7 @@ function createLoginWindow() {
 // Function to create child window of parent one
 function createMainWindow() {
   mainWindow = new BrowserWindow({
-    title: 'Electro',
+    title: 'RecenTweets',
 
     width: 1200,
     height: 800,
@@ -82,8 +82,6 @@ ipcMain.on("openMainWindow", (event, arg) => {
 });
 
 ipcMain.on("openLoginWindow", (event, arg) => {
-  //
-
   app.relaunch();
   app.exit();
 });
