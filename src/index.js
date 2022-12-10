@@ -35,7 +35,7 @@ function createLoginWindow() {
   });
   
   // Main window loads index.html file
-  loginWindow.loadFile(__dirname, "login.html");
+  loginWindow.loadFile(path.join(__dirname, 'login.html'));
   
   loginWindow.show();
 }
@@ -67,18 +67,28 @@ function createMainWindow() {
     },
   });
   
-  // Child window loads settings.html file
-  mainWindow.loadFile(__dirname, "index.html");
+  // Child window loads index.html file
+  mainWindow.loadFile(path.join(__dirname, 'index.html'));
   
   mainWindow.once("ready-to-show", () => {
     mainWindow.show();
+    loginWindow.hide();
   });
 }
-  
+
+// Handles window switching
 ipcMain.on("openMainWindow", (event, arg) => {
   createMainWindow();
 });
-  
+
+ipcMain.on("openLoginWindow", (event, arg) => {
+  //
+
+  app.relaunch();
+  app.exit();
+});
+
+// Default app behaviour
 app.whenReady().then(() => {
   createLoginWindow();
   

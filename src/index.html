@@ -7,6 +7,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link id="theme" rel="stylesheet" type="text/css" href="" />
     <script type="text/javascript" src="./scripts/theme.js"></script>
+    <script defer type="text/javascript" src="./scripts/renderIndex.js"></script>
 </head>
 
 <body onload="">
@@ -49,9 +50,12 @@
         <div id="home-main">
             <h1>Here is my first Electron JS application</h1>
 
+            <h3>Text and other items go here</h3>
+            
             <button onclick="switchStyle()" class="btnDark">Switch Theme</button>
             <button href="#" class="btnDark">Link Example</button>
             <button href="#" class="btnDark">Another Button</button>
+            <button id="btnLogOut" class="btnDark">Logout</button>
         </div>
 
         <div id="home-right">
