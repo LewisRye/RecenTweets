@@ -98,7 +98,7 @@ input {
   width: 225px;
   height: calc(100vh);
   padding-left: 20px;
-  padding-right: 20px;
+  padding-right: 40px;
   padding-bottom: 20px;
   z-index: 1;
   left: 0;
@@ -129,7 +129,7 @@ input {
   position: fixed;
   top: 0px;
   bottom: 0px;
-  left: 250px;
+  left: 270px;
   right: 225px;
   padding: 40px;
   padding-top: 0px;
