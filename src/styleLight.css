@@ -1,22 +1,22 @@
 /* COLOR PALETTE */
 :root {
-    --background: #ffffff;
-    --surface: #d8d8d8;
-    --surface-light: #eeeeee;
-    --surface-dark: #b4b4b4;
-    --primary-color: #6200ee;
-    --darker-primary-color: #3700b3;
-    --secondary-color: #03dac6;
-    --darker-secondary-color: #018786;
-    --error: #b00020;
+  --background: #ffffff;
+  --surface: #d8d8d8;
+  --surface-light: #eeeeee;
+  --surface-dark: #b4b4b4;
+  --primary-color: #6200ee;
+  --darker-primary-color: #3700b3;
+  --secondary-color: #03dac6;
+  --darker-secondary-color: #018786;
+  --error: #b00020;
 }
 
 /* FONT SETTINGS */
 * {
-    font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Helvetica,
-    Arial, sans-serif;
-    cursor: default;
-    user-select: none;
+  font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Helvetica,
+  Arial, sans-serif;
+  cursor: default;
+  user-select: none;
 }
 
 /* BODY */
@@ -26,6 +26,7 @@ body, html {
   width: 100%;
   height: 100%;
   background-color: var(--background);
+  transform: 0.25s all;
 }
 
 /* LOGIN SECTION */
@@ -60,7 +61,7 @@ body, html {
   position: fixed;
   text-align: center;
   color: rgba(0,0,0,0);
-  transition: opacity 0.35s;
+  transition: opacity 0.25s;
   font-weight: bold; 
 }
 
@@ -92,102 +93,117 @@ input {
 /* HOME SECTION */
 
 #home-left {
-    position: fixed;
-    width: 225px;
-    height: calc(100vh);
-    padding-left: 20px;
-    padding-right: 20px;
-    padding-bottom: 20px;
-    z-index: 1;
-    left: 0;
-    top: 0px;
-    bottom: 0px;
-    background-color: var(--surface);
-    overflow-y: scroll;
-    overflow-x: hidden;
+  text-align: center;
+  position: fixed;
+  width: 225px;
+  height: calc(100vh);
+  padding-left: 20px;
+  padding-right: 20px;
+  padding-bottom: 20px;
+  z-index: 1;
+  left: 0;
+  top: 0px;
+  bottom: 0px;
+  background-color: var(--surface);
+  overflow: hidden;
+  transition: 0.25s all;
+}
+
+#home-left:hover {
+  overflow-y: overlay;
 }
 
 #home-left h3 {
   height: 5vh;
   line-height: 5vh;
+  border-radius: 5px;
 }
 
 #home-left h3:hover {
   background-color: var(--surface-light);
   cursor: pointer;
+  transition: 0.25s all;
 }
 
 #home-main {
-    position: fixed;
-    top: 0px;
-    bottom: 0px;
-    left: 275px;
-    right: 250px;
-    padding: 15px;
-    padding-top: 0px;
+  position: fixed;
+  top: 0px;
+  bottom: 0px;
+  left: 250px;
+  right: 225px;
+  padding: 40px;
+  padding-top: 0px;
+  transition: 0.25s all;
 }
 
 #home-right {
-    position: fixed;
-    width: 200px;
-    height: calc(100vh);
-    padding-left: 20px;
-    padding-right: 20px;
-    padding-bottom: 20px;
-    z-index: 1;
-    right: 0;
-    top: 0px;
-    bottom: 0px;
-    background-color: var(--surface-light);
-    overflow-y: scroll;
-    overflow-x: hidden;
+  text-align: center;
+  position: fixed;
+  width: 200px;
+  height: calc(100vh);
+  padding-left: 20px;
+  padding-right: 20px;
+  padding-bottom: 20px;
+  z-index: 1;
+  right: 0;
+  top: 0px;
+  bottom: 0px;
+  background-color: var(--surface-light);
+  overflow: hidden;
+  transition: 0.25s all;
+}
+
+#home-right:hover {
+  overflow-y: overlay;
 }
 
 #home-right h3 {
   height: 5vh;
   line-height: 5vh;
+  border-radius: 5px;
 }
 
 #home-right h3:hover {
   background-color: var(--surface-dark);
   cursor: pointer;
+  transition: 0.25s all;
 }
 
 .btnDark {
-    -webkit-appearance: button;
-    -moz-appearance: button;
-    appearance: button;
+  -webkit-appearance: button;
+  -moz-appearance: button;
+  appearance: button;
 
-    padding: 2.5%;
-    border: 0px;
-    border-radius: 5px;
-    cursor: pointer;
+  padding: 2.5%;
+  border: 0px;
+  border-radius: 5px;
+  cursor: pointer;
 
-    text-decoration: none;
-    color: #fff;
-    background-color: var(--primary-color);
+  text-decoration: none;
+  color: #fff;
+  background-color: var(--primary-color);
 }
 
 .btnDark:hover {
-    opacity: 0.75;
+  opacity: 0.75;
 }
 
 /* width */
 ::-webkit-scrollbar {
-    width: 10px;
-  }
+  width: 10px;
+}
   
-  /* Track */
-  ::-webkit-scrollbar-track {
-    background: rgba(0,0,0,0);
-  }
-  
-  /* Handle */
-  ::-webkit-scrollbar-thumb {
-    background: #888;
-  }
-  
-  /* Handle on hover */
-  ::-webkit-scrollbar-thumb:hover {
-    background: #555;
-  }
+/* Track */
+::-webkit-scrollbar-track {
+  background: rgba(0,0,0,0);
+}
+
+/* Handle */
+::-webkit-scrollbar-thumb {
+  background: #888;
+}
+
+/* Handle on hover */
+::-webkit-scrollbar-thumb:hover {
+  background: #555;
+}
