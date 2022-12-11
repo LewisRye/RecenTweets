@@ -19,7 +19,8 @@
   "license": "MIT",
   "dependencies": {
     "electron-squirrel-startup": "^1.0.0",
-    "jquery": "^3.6.1"
+    "jquery": "^3.6.1",
+    "mysql": "^2.18.1"
   },
   "devDependencies": {
     "@electron-forge/cli": "^6.0.4",
