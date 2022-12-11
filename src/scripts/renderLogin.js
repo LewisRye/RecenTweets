@@ -10,6 +10,23 @@ const lblIncorrect = document.getElementById('lblIncorrect');
 
 btnLogin.onclick = login;
 
+// Execute a function when the user presses enter on the keyboard
+txtUsr.addEventListener("keypress", function(event) {
+  if (event.key === "Enter") {
+    // Cancel the default action, if needed
+    event.preventDefault();
+    login();
+  }
+});
+
+// Execute a function when the user presses enter on the keyboard
+txtPwd.addEventListener("keypress", function(event) {
+  if (event.key === "Enter") {
+    // Cancel the default action, if needed
+    event.preventDefault();
+    login();
+  }
+});
 // logs the user in
 function login()
 {
@@ -29,16 +46,11 @@ function login()
         if (err){ 
           throw err;
         }
-        console.log(results[0].count);
         count = parseInt(results[0].count);
-        console.log(count);
 
         if (count == 1)
         {
-        console.log('Logged in.');
         ipc.send('openMainWindow');
-        txtUsr.value = "";
-        txtPwd.value = "";
         count = 0;
         }
         else
