@@ -36,7 +36,11 @@ function createLoginWindow() {
   
   // Main window loads index.html file
   loginWindow.loadFile(path.join(__dirname, 'login.html'));
-  
+
+  loginWindow.on('minimize', function() { 
+    loginWindow.minimize();
+  });
+
   loginWindow.show();
 }
   
@@ -57,9 +61,8 @@ function createMainWindow() {
     fullscreenable: false,
     autoHideMenuBar: true,
     enableLargerThanScreen: false,
-    parent: loginWindow, // Make sure to add this
+    parent: loginWindow, // !important
   
-    // Make sure to add webPreferences with below configuration
     webPreferences: {
       nodeIntegration: true,
       contextIsolation: false,
@@ -70,6 +73,10 @@ function createMainWindow() {
   // Child window loads index.html file
   mainWindow.loadFile(path.join(__dirname, 'index.html'));
   
+  mainWindow.on('minimize', function() { 
+    mainWindow.minimize();
+  });
+
   mainWindow.once("ready-to-show", () => {
     mainWindow.show();
     loginWindow.hide();
